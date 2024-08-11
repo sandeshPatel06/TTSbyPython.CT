@@ -1,0 +1,137 @@
+
+    /* Basic styling for the body including background image and font */
+    body {
+      font-family: "Roboto", sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKmaJ6XOU3NtKbDuOYG_GHzWb75nx3CMgc6Q&s")
+        no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+    }
+
+    /* Container for the form, styled with a background color, padding, and shadow */
+    .form-container {
+      background: rgba(
+        255,
+        255,
+        255,
+        0.9
+      ); /* Slightly transparent background */
+      padding: 30px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      border-radius: 12px;
+      width: 100%;
+      max-width: 500px;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    /* Header styling within the form container */
+    .form-container h2 {
+      margin-bottom: 20px;
+      font-size: 28px;
+      color: #00796b;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    /* General styling for form groups including margins */
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    /* Label styling */
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: #004d40;
+      font-weight: 500;
+    }
+
+    /* Styling for text inputs and select elements */
+    .form-group input[type="text"],
+    .form-group select {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #00796b;
+      border-radius: 8px;
+      box-sizing: border-box;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    /* Focus state styling for text inputs and select elements */
+    .form-group input[type="text"]:focus,
+    .form-group select:focus {
+      border-color: #004d40;
+      box-shadow: 0 0 8px rgba(0, 77, 64, 0.3);
+      outline: none;
+    }
+
+    /* Styling for the submit button */
+    .form-group input[type="submit"] {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background-color: #00796b;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    /* Hover state styling for the submit button */
+    .form-group input[type="submit"]:hover {
+      background-color: #004d40;
+      transform: scale(1.02);
+    }
+
+    /* Loading text styling */
+    .loading {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 18px;
+      color: #00796b;
+    }
+
+    /* Result container styling */
+    .result {
+      display: none;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    /* Styling for audio player within the result container */
+    .result audio {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    /* Styling for the download link */
+    .result a {
+      color: #00796b;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* Hover state styling for the download link */
+    .result a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive design adjustments */
+
+    @media (max-width: 600px) {
+      .form-container {
+        padding: 20px;
+        width: 90%;
+      }
+    }
