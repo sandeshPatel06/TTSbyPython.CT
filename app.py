@@ -1,7 +1,6 @@
 from flask import Flask, request, render_template, send_file, jsonify
 import pyttsx3
 import os
-import tempfile
 
 app = Flask(__name__)
 
@@ -57,18 +56,14 @@ def convert_text_to_speech():
         if voice.id == voice_id:
             engine.setProperty('voice', voice.id)
             break
+    
+    # Generate the speech and save it to an MP3 file
+    engine.save_to_file(text, 'output.mp3')
+    engine.runAndWait()
+    
+    # Send the generated MP3 file as a response to the client
+    return send_file('output.mp3', as_attachment=True, download_name='output.mp3')
 
-    # Use a temporary file for output to ensure cross-platform compatibility
-    with tempfile.NamedTemporaryFile(delete=False, suffix='.mp3') as tmpfile:
-        output_path = tmpfile.name
-    try:
-        engine.save_to_file(text, output_path)
-        engine.runAndWait()
-        return send_file(output_path, as_attachment=True, download_name='output.mp3')
-    finally:
-        # Clean up the temporary file after sending
-        if os.path.exists(output_path):
-            os.remove(output_path)
 
 if __name__ == '__main__':
     # Run the Flask application in debug mode
